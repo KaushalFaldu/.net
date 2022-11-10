@@ -1,1 +1,16 @@
+if (OBJECT_ID('GetLeapYear')is not null) drop proc GetLeapYear
+go
 
+create proc GetLeapYear
+@Year int
+as
+begin
+	if @Year % 4 = 0 and @Year!=0
+		print '' +cast(@YEAR AS VARCHAR(50)) + 'IS LEAP YEAR'
+
+	ELSE
+		print'' + cast(@YEAR AS VARCHAR(50)) + ' IS NOT LEAP YEAR'
+END
+RETURN 
+
+EXEC GetLeapYear 2001
