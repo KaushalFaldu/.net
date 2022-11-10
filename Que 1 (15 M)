@@ -1,0 +1,236 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+        ReEnter:
+            Console.WriteLine("Enter Username : ");
+            String UserName = Console.ReadLine();
+            Console.WriteLine("Enter Password : ");
+            String UserPass = Console.ReadLine();
+
+            if (UserName == "Charmi" && UserPass == "123")
+            {
+               
+                int choise;
+            Menu:
+                Console.WriteLine("Menu");
+                Console.WriteLine("1. Student information");
+                Console.WriteLine("2. Student grade history");
+                Console.WriteLine("3. Student library history");
+                Console.WriteLine("4. Logout");
+                
+                Console.WriteLine("Enter your Choise : ");
+                choise = Convert.ToInt32(Console.ReadLine());
+
+
+                StudentLiberary[] s2 = new StudentLiberary[3];
+                s2[0] = new StudentLiberary();
+                s2[0].bookid = "123";
+                s2[0].bookname = "abc";
+                s2[0].available_date = "12-2-2022";
+                s2[0].return_date = "25-3-2022";
+
+                s2[1] = new StudentLiberary();
+                s2[1].bookid = "1234";
+                s2[1].bookname = "abcd";
+                s2[1].available_date = "1-2-2022";
+                s2[1].return_date = "2-3-2022";
+
+                s2[2] = new StudentLiberary();
+                s2[2].bookid = "1235";
+                s2[2].bookname = "abce";
+                s2[2].available_date = "12-5-2022";
+                s2[2].return_date = "25-4-2022";
+
+                StudentGrade[] s1 = new StudentGrade[3];
+                s1[0] = new StudentGrade();
+                s1[0].Subject = "DAA";
+                s1[0].Marks = "95";
+
+                s1[1] = new StudentGrade();
+                s1[1].Subject = ".NET";
+                s1[1].Marks = "90";
+
+                s1[2] = new StudentGrade();
+                s1[2].Subject = "ML";
+                s1[2].Marks = "85";
+
+                StudentInfo[] s = new StudentInfo[3];
+                s[0] = new StudentInfo();
+                s[0].En_no = "92000133009";
+                s[0].Name = "Renish";
+                s[0].Surname = "Surani";
+                s[0].Bdate = "24-01-2003";
+                s[0].M_no = "6351297828";
+                s[0].Sem = "5";
+
+                s[1] = new StudentInfo();
+                s[1].En_no = "92000133005";
+                s[1].Name = "Kaushal";
+                s[1].Surname = "Faldu";
+                s[1].Bdate = "17-02-2002";
+                s[1].M_no = "6351297828";
+                s[1].Sem = "1";
+
+                s[2] = new StudentInfo();
+                s[2].En_no = "92000133018";
+                s[2].Name = "Pushti";
+                s[2].Surname = "Depani";
+                s[2].Bdate = "24-01-2003";
+                s[2].M_no = "6351297828";
+                s[2].Sem = "4";
+
+
+                
+
+                switch (choise)
+                {
+                    case 1:
+                        for (int i = 0; i < 3; i++)
+                        {
+                            Console.WriteLine("En-no : " + s[i].En_no);
+                            Console.WriteLine("Name : " + s[i].Name);
+                            Console.WriteLine("Surname : " + s[i].Surname);
+                            Console.WriteLine("Bdate : " + s[i].Bdate);
+                            Console.WriteLine("Mo : " + s[i].M_no);
+                            Console.WriteLine("sem : " + s[i].Sem);
+                            Console.WriteLine("\n");
+                        }
+
+                        Console.WriteLine("Menu");
+                        Console.WriteLine("1. Main menu");
+                        Console.WriteLine("2. Logout");
+                        
+                        Console.WriteLine("Enter your Choise : ");
+                        choise = Convert.ToInt32(Console.ReadLine());
+                        switch (choise)
+                        {
+                            case 1:
+                                goto Menu;
+                                break;
+                            case 2:
+                                goto ReEnter;
+                                break;
+                        }
+                        break;
+                    case 2:
+                        String sem;
+                        Console.WriteLine("enter semester: ");
+                        sem = Console.ReadLine();
+                        for(int i = 0; i < 3; i++)
+                        {
+                            if(s[i].Sem == sem)
+                            {
+                                Console.WriteLine("Subject : " + s1[i].Subject);
+                                Console.WriteLine("Marks : " + s1[i].Marks);
+
+                            }
+                               
+
+                            
+                               
+
+                        }
+                        Console.WriteLine("Menu");
+                        Console.WriteLine("1. Logout");
+                        Console.WriteLine("2. Main Menu");
+                        
+                        Console.WriteLine("Enter your Choise : ");
+                        choise = Convert.ToInt32(Console.ReadLine());
+                        switch (choise)
+                        {
+                            case 1:
+                                goto ReEnter;
+                                break;
+                            case 2:
+                                goto Menu;
+                                break;
+                        }
+
+                        break;
+                    case 3:
+                        String enroll;
+                        Console.WriteLine("enter enroll no: ");
+                        enroll = Console.ReadLine();
+                        for (int i = 0; i < 2; i++)
+                        {
+                            if (s[i].En_no == enroll)
+                            {
+                                Console.WriteLine("bookid : " + s2[i].bookid);
+                                Console.WriteLine("bookname : " + s2[i].bookname);
+                                Console.WriteLine("available_date : " + s2[i].available_date);
+                                Console.WriteLine("return_date : " + s2[i].return_date);
+
+                            }
+                            
+                        }
+
+                        
+                        Console.WriteLine("Menu");
+                        Console.WriteLine("1. Main menu");
+                        Console.WriteLine("2. Logout");
+                        
+                        Console.WriteLine("Enter your Choise : ");
+                        choise = Convert.ToInt32(Console.ReadLine());
+                        switch (choise)
+                        {
+                            case 1:
+                                goto Menu;
+                                break;
+                            case 2:
+                                goto ReEnter;
+                                break;
+                        }
+
+
+                        break;
+                    case 4:
+                        goto ReEnter;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                goto ReEnter;
+            }
+            Console.ReadKey();
+        }
+    }
+    class StudentInfo
+    {
+        public String Name { get; set; }
+        public String En_no { get; set; }
+        public String Surname { get; set; }
+        public String Bdate { get; set; }
+        public String M_no { get; set; }
+        public String Sem { get; set; }
+
+       
+    }
+    class StudentGrade
+    {
+        public String Subject { get; set; }
+        public String Marks { get; set; }
+    }
+   
+    class StudentLiberary
+    {
+        public String bookid { get; set; }
+        public String bookname { get; set; }
+        public String available_date { get; set; }
+
+        public String return_date { get; set; }
+
+    }
+    
+}
